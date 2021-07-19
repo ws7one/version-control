@@ -1,6 +1,6 @@
 {
   "main": "node_modules/expo/AppEntry.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -8,7 +8,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "postversion": "react-native-version"
+    "postversion": "react-native-version --amend"
   },
   "jest": {
     "preset": "jest-expo"
