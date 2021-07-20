@@ -8,7 +8,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "prepublish": "echo versioning && npm version patch --no-git-tag-version && git config --global user.email 'philip.viningston@tech9.com' && git config --global user.name 'Philip Viningston' && react-native-version --amend"
+    "prepublish": "echo versioning && npm version patch --no-git-tag-version && git config --global user.email 'philip.viningston@tech9.com' && git config --global user.name 'Philip Viningston' && react-native-version --amend --skip-tag"
   },
   "jest": {
     "preset": "jest-expo"
