@@ -16,8 +16,8 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     env:
-      EXPO_USERNAME: pviningston
-      EXPO_PASSWORD: w007stone
+      GIT_EMAIL: pviningston@hotmail.com
+      GIT_NAME: philip
 
     steps:
       - uses: actions/checkout@v2
@@ -27,6 +27,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm i -g react-native-version
+      - run: git config --global user.email "$GIT_EMAIL"
+      - run: git config --global user.name "$GIT_NAME"
       - run: echo $GITHUB_SHA
       - run: npm version patch --no-git-tag-version
       - run: react-native-version --amend --skip-tag
