@@ -31,5 +31,5 @@ jobs:
       - run: git config --global user.name "$GIT_NAME"
       - run: echo $GITHUB_SHA
       - run: echo $GITHUB_REF
-      - run: npm run version-upgrade patch
+      - run: npm run version-upgrade patch --no-git-tag-version
       - run: git add . && git commit -m "Version upgrade" && git push origin $GITHUB_REF
