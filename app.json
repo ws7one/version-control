@@ -2,7 +2,7 @@
   "expo": {
     "name": "version-control",
     "slug": "version-control",
-    "version": "0.0.8-1",
+    "version": "0.0.8-3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -20,14 +20,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "buildNumber": "7"
+      "buildNumber": "9"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "versionCode": 7
+      "versionCode": 9
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
