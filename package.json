@@ -8,7 +8,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "prepublish": "echo versioning && npm version patch --no-git-tag-version && react-native-version --amend --skip-tag"
+    "prepublish": "echo versioning && npm version patch --no-git-tag-version && react-native-version --skip-tag"
   },
   "jest": {
     "preset": "jest-expo"
