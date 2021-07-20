@@ -29,6 +29,6 @@ jobs:
       - run: npm i -g expo-cli
       - run: npm i -g react-native-version
       - run: echo $GITHUB_SHA
-      - run: npm version $GITHUB_SHA --no-git-tag-version
+      - run: npm version patch --no-git-tag-version
       - run: react-native-version --skip-tag
       - run: expo publish
