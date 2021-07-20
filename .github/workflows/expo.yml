@@ -29,7 +29,8 @@ jobs:
       - run: npm i -g react-native-version
       - run: git config --global user.email "$GIT_EMAIL"
       - run: git config --global user.name "$GIT_NAME"
-      - run: echo $GITHUB_SHA
+      - run: echo $GITHUB_BASE_REF
       - run: echo $GITHUB_REF
+      - run: echo $GITHUB_HEAD_REF
       - run: npm version patch --no-git-tag-version
       - run: git add . && git commit -m "Version upgrade" && git push origin $GITHUB_REF
