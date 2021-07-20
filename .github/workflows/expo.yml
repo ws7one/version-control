@@ -24,4 +24,3 @@ jobs:
       - run: npm ci
       - run: npm i -g react-native-version
       - run: react-native-version --amend
-      - run: echo https://expo.io/@skipio/skipio-mobile-expo?release-channel=$GITHUB_SHA
