@@ -33,4 +33,6 @@ jobs:
       - run: echo $GITHUB_REF
       - run: echo $GITHUB_HEAD_REF
       - run: npm version patch --no-git-tag-version
-      - run: git add . && git commit -m "Version upgrade" && git push origin $GITHUB_HEAD_REF --force
+      - run: git add -a
+      - run: git commit -m "Version upgrade"
+      - run: git push origin $GITHUB_HEAD_REF --force
