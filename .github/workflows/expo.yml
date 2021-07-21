@@ -27,9 +27,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm i -g react-native-version
-      - run: git config --global user.email "$GIT_EMAIL"
-      - run: git config --global user.name "$GIT_NAME"
-      - run: echo $GITHUB_BASE_REF
-      - run: echo $GITHUB_REF
-      - run: echo $GITHUB_HEAD_REF
-      - run: npm version patch --no-git-tag-version
+      - run: |
+        npm version patch --no-git-tag-version
+        react-native-version --never-amend --skip-tag
+      - name: Commit report
+        run: |
+          git config --global user.name "$GIT_NAME"
+          git config --global user.email "$GIT_EMAIL"
+          git commit -am "Automated report"
+          git push
