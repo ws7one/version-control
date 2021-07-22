@@ -34,4 +34,4 @@ jobs:
           git config --global user.name "$GIT_NAME"
           git config --global user.email "$GIT_EMAIL"
           git commit -am "Automated report"
-          git push origin $GITHUB_HEAD_REF
+          git push
