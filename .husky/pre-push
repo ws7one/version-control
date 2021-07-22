@@ -3,7 +3,7 @@
 
 echo $1
 echo Versioning...
-npm version patch
+npm version prerelease --preid=beta
 react-native-version --never-amend
 git add -A .
 git commit -m "Version upgraded"
