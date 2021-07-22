@@ -27,8 +27,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm i -g react-native-version
-      - run: git config --global user.email "$GIT_EMAIL"
-      - run: git config --global user.name "$GIT_NAME"
-      - run: echo $GITHUB_SHA
+      - run: echo ${{ github.repository }}
       - run: npm version patch --no-git-tag-version
-      - run: react-native-version --amend --skip-tag
+      - run: react-native-version --never-amend --skip-tag
+      - name: Commit report
+        run: |
+          git config --global user.name "$GIT_NAME"
+          git config --global user.email "$GIT_EMAIL"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "Automated report"
+          git push origin $GITHUB_HEAD_REF
