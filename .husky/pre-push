@@ -4,4 +4,7 @@
 echo $1
 echo Versioning...
 npm version patch
-react-native-version --amend
+react-native-version --never-amend
+git add -A .
+git commit -m "Version upgraded"
+git push origin HEAD --no-verify
