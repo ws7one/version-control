@@ -1,39 +1,23 @@
-name: Node.js CI
-
+name: Bump version
 on:
-  push:
-    branches: [master]
   pull_request:
     branches: [master]
-
+    paths-ignore:
+      - "package.json"
+      - "CHANGELOG.md"
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [15.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    env:
-      GIT_EMAIL: pviningston@hotmail.com
-      GIT_NAME: philip
-
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm i -g react-native-version
-      - run: echo ${{ github.repository }}
-      - run: npm version patch --no-git-tag-version
-      - run: react-native-version --never-amend --skip-tag
-      - name: Commit report
-        run: |
-          git config --global user.name "$GIT_NAME"
-          git config --global user.email "$GIT_EMAIL"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git commit -am "Automated report"
-          git push origin $GITHUB_HEAD_REF
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Bump version and push tag
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          git-message: "chore(release): {version}"
+          preset: "angular"
+          tag-prefix: ""
+          output-file: "CHANGELOG.md"

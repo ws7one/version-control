@@ -1,8 +1,3 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo $1
-echo Versioning...
-npm version patch
-react-native-version --never-amend
-git add -A .
